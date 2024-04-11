@@ -1,0 +1,10 @@
+@if (authService.isLoggedIn) {
+    <app-SideNavbar></app-SideNavbar>
+}
+@if (authService.signUp) {
+    <app-Signup></app-Signup>
+}
+@if (authService.login) {
+    <app-Login></app-Login>
+}
+<router-outlet></router-outlet>

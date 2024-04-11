@@ -1,0 +1,33 @@
+<div class="bg-white p-10">
+  <div class="flex flex-col">
+    <div class="flex flex-row justify-between items-center py-1">
+      <h1 class="!font-sans !font-bold ">Share</h1>
+      <img src="assets/cancel.svg"(click)="closeDialog()" class="w-7 h-7 cursor-pointer" alt="cancel">
+    </div>
+
+    <div class="flex flex-row w-80 h-fit py-1">
+      <div class="p-2 cursor-pointer">
+        <img src="assets/facebook.svg" alt="facebook">
+      </div>
+      <div class="p-2 cursor-pointer">
+        <img src="assets/instagram.svg" alt="instagram">
+      </div>
+      <div class="p-2 cursor-pointer">
+        <img src="assets/skype.svg" alt="skype">
+      </div>
+      <div class="p-2 cursor-pointer">
+        <img src="assets/pinterest.svg" alt="pinterest">
+      </div>
+      <div class="p-2 cursor-pointer">
+        <img src="assets/reddit.svg" alt="reddit">
+      </div>
+    </div>
+    <div class="fle items-center py-1">
+      <input type="text" id="input" class="bg-gray-100 rounded-lg px-4 py-2 border mb-3 border-gray-600 w-full"[value]="currentUrl" (click)="selectUrl()" readonly #urlInput>
+      <button class="bg-black font-sans font-bold hover:bg-gray-800 w-20 text-white rounded-lg my-1 px-4 py-2" (click)="copyUrl()">
+        {{buttonName}}
+      </button>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,87 @@
+<div class="w-full px-4 py-6 space-y-6 ">
+  <div class="mx-auto flex flex-row justify-center gap-36">
+    <div class="order-2 flex-row pt-40 mr-auto">
+      <div class="grid gap-2">
+        <h1 class="!text-3xl !font-bold !font-sans">Create an account</h1>
+        <p class="text-gray-500 dark:text-gray-400 font-sans">
+          Already have an account?
+          <a class="underline font-sans" routerLink="/login" (click)="login()">
+            Log in
+          </a>
+        </p>
+      </div>
+        <div class="grid max-w-[400px] gap-4">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="space-y-2">
+              <label class="text-sm font-medium font-sans" for="first-name">
+                First name
+              </label>
+              <input
+                class="flex h-10 w-full rounded-md border px-3 py-2 text-sm font-sans placeholder:text-sm placeholder:font-sans placeholder:font-medium"
+                id="first-name" [(ngModel)]="firstName" placeholder="Enter your first name" />
+            </div>
+            <div class="space-y-2">
+              <label class="text-sm font-medium font-sans" for="last-name">
+                Last name
+              </label>
+              <input
+                class="flex h-10 w-full rounded-md border px-3 py-2 text-sm font-sans placeholder:text-sm placeholder:font-sans placeholder:font-medium"
+                id="last-name" [(ngModel)]="lastName" placeholder="Enter your last name" />
+            </div>
+          </div>
+          <div class="grid grid-row-2 gap-4">
+            <div class="space-y-2">
+              <label class="text-sm font-medium font-sans" for="email">
+                Email
+              </label>
+              <input
+                class="flex h-10 w-full rounded-md border px-3 py-2 text-sm font-sans placeholder:text-sm placeholder:font-sans placeholder:font-medium"
+                id="email" [(ngModel)]="email" placeholder="Enter your email" autocomplete="email" type="email" />
+            </div>
+            <div class="space-y-2 relative">
+              <label class="text-sm font-medium font-sans" for="password">
+                Password
+              </label>
+              <div class="relative">
+                <input
+                  class="flex h-10 w-full rounded-md border px-3 py-2 text-sm font-sans placeholder:text-sm placeholder:font-sans placeholder:font-medium"
+                  id="password" [(ngModel)]="password" [type]="showPassword ? 'text' : 'password'" placeholder="Enter password" />
+                <span class="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer"
+                  (click)="togglePassword()">
+                  @if (showPassword) {
+                  <svg class="h-6 w-6 stroke-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
+                    </path>
+                  </svg>
+                  }
+                  @if (!showPassword) {
+                  <svg class="h-6 w-6 stroke-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
+                    </path>
+                  </svg>
+                  }
+                </span>
+              </div>
+            </div>
+            <button
+              class="flex items-center justify-center rounded-md font-sans text-white text-sm font-bold h-10 px-4 py-2 w-full bg-black hover:bg-slate-800"
+              (click)="signUp()">
+              Sign up
+            </button>
+          </div>
+        </div>
+    </div>
+    <div class="order-1 w-full flex-row pt-40 ml-auto max-w-sm rounded-xl ">
+      <img src="assets/logo.png" width="400" height="600" alt="Illustration" class=" " />
+    </div>
+  </div>
+</div>
+

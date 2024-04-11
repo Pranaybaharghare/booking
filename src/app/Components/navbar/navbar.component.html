@@ -1,0 +1,83 @@
+<header [class]="darkMode?' bg-gray-800 text-white shadow-lg sticky':' bg-white bg-opacity-5 text-white shadow-lg sticky'">
+  <div class="container mx-auto flex items-center h-16">
+    <img src="assets/logo.png" class="w-16 flex relative -left-1 top-1" alt="logo">
+    <nav class="contents font-sans font-semibold !text-base lg:text-lg">
+      <ul [class]="darkMode?' flex items-start text-white':' flex items-start text-black'">
+        @for (item of sideBarContent; track $index) {
+        <li class="p-5 xl:p-8">
+          <a routerLink="/{{item}}" routerLinkActive="text-green-500" ariaCurrentWhenActive="page">
+            <span>{{item}}</span>
+          </a>
+        </li>
+        }
+      </ul>
+      <input  type="text"
+        [class]="darkMode?'border border-gray-300 rounded-md py-[6px] px-6 w-3/12 focus:outline-none focus:border-green-500 absolute right-52 text-black':'border border-gray-300 rounded-md py-[6px] px-6 w-3/12 focus:outline-none focus:border-green-500 absolute right-52 text-black' "
+        placeholder="Search Venue" [(ngModel)]="searchContent" (input)="toggleCancelIcon()">
+      @if (showCancelIcon) {
+      <svg class="cancel-icon absolute right-[13.5rem] top-[22px] w-5 h-5 text-gray-500 cursor-pointer"
+        xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24"
+        (click)="resetInput()">
+        <path
+          d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 8.7070312 7.2929688 L 7.2929688 8.7070312 L 10.585938 12 L 7.2929688 15.292969 L 8.7070312 16.707031 L 12 13.414062 L 15.292969 16.707031 L 16.707031 15.292969 L 13.414062 12 L 16.707031 8.7070312 L 15.292969 7.2929688 L 12 10.585938 L 8.7070312 7.2929688 z">
+        </path>
+      </svg>
+      }
+      <button type="button"
+        [class]="darkMode?'absolute right-28 px-5 py-[6px] bg-white text-black rounded-md hover:bg-green-600':'absolute right-28 px-5 py-[6px]  bg-black text-white rounded-md hover:bg-green-600'"
+        routerLink="/search" [queryParams]="{query:searchContent}" (click)="resetInput()">
+        Search
+      </button>
+      <div class="absolute right-10 top-3 rounded-md" (click)="toggleDropdown($event)">
+        <button type="button"
+          [class]="darkMode?'text-sm bg-gray-800 rounded-full  focus:ring-gray-300 ring-inset dark:focus:ring-gray-600':'text-sm bg-gray-800 rounded-full border border-gray-400 focus:ring-2 focus:ring-gray-300' "
+          id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+          <span class="sr-only">Open user menu</span>
+          <img class="w-9 h-9 rounded-full" src="assets/profile-image.jpg" alt="user_photo">
+        </button>
+        <!-- Dropdown menu -->
+        @if (isDropdownOpen) {
+        <div
+          [class]="darkMode?'absolute right-0 mt-2 w-52 p-3 rounded-lg shadow-lg bg-gray-700 ':'absolute right-0 mt-2 w-52 p-3 bg-white rounded-lg shadow-lg '"
+          id="user-dropdown">
+          <div [class]="darkMode?'px-3 py-2 dark:bg-gray-800':'px-3 py-2' ">
+            <span [class]="darkMode?'block text-sm  dark:text-white ':'block text-sm text-gray-900' ">Lorem ipsum</span>
+            <span
+              [class]="darkMode?'block text-sm  truncate dark:text-gray-400':'block text-sm text-gray-500 ' ">loremipsumgmail.com</span>
+          </div>
+          <ul aria-labelledby="user-menu-button">
+            @for (item of userProfile; track $index) {
+
+            @if (item === 'Dark Mode'|| item ==='Light Mode') {
+            <li>
+              <a (click)="toggleDarkMode()" routerLinkActive="text-green-500" ariaCurrentWhenActive="page"
+                [class]="darkMode ? 'block py-2 px-3 text-sm hover:bg-white text-white hover:text-black hover:w-fit cursor-pointer hover:rounded-full  dark:bg-gray-700 dark:hover:text-gray-200 bg-gray-700' : 'block py-2 px-3 text-sm cursor-pointer text-gray-700 hover:bg-gray-200 hover:w-fit hover:rounded-2xl'">
+                {{ colourMode }}
+              </a>
+            </li>
+            }
+            @else if (item === 'Signout'){
+            <li>
+              <a (click)="signout()" routerLinkActive="text-green-500" ariaCurrentWhenActive="page"
+                [class]="darkMode ? 'block py-2 px-3 text-sm hover:bg-white text-white hover:text-black hover:w-fit cursor-pointer hover:rounded-full dark:bg-gray-700 dark:hover:text-gray-200 bg-gray-700' : 'block py-2 px-3 text-sm cursor-pointer text-gray-700 hover:bg-gray-200 hover:w-fit hover:rounded-2xl'">
+                {{ item }}
+              </a>
+            </li>
+            }
+            @else {
+            <li>
+              <a [class]="darkMode ? 'block py-2 px-3 text-sm hover:bg-white text-white hover:text-black hover:w-fit hover:rounded-full dark:bg-gray-700 dark:hover:text-gray-200 bg-gray-700' : 'block py-2 px-3 text-sm text-gray-700 hover:bg-gray-200 hover:w-fit hover:rounded-2xl'"
+                routerLink="/{{ item }}" routerLinkActive="text-green-500" ariaCurrentWhenActive="page">
+                {{ item }}
+              </a>
+            </li>
+            }
+            }
+          </ul>
+        </div>
+        }
+      </div>
+    </nav>
+  </div>
+</header>
+<router-outlet></router-outlet>

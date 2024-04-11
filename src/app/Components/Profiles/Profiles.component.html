@@ -1,0 +1,176 @@
+<div>
+  <div class="flex flex-row mx-10 my-8 space-x-6 p-6 h-fit rounded-lg bg-slate-200">
+    <div class="flex px-6 py-16 bg-gray-100 dark:bg-gray-800 rounded-lg ">
+      <div class="flex flex-col gap-4 my-auto">
+        <div class="">
+          <span class="flex h-56 w-56 rounded-full">
+            <img class="flex h-full w-full items-center justify-center rounded-full" src="assets/profile-image.jpg">
+          </span>
+          <div class="flex justify-center mx-auto pt-2">
+            <button
+              class="flex items-center justify-center font-sans rounded-md text-sm font-medium h-10 underline gap-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+                <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z">
+                </path>
+                <circle cx="12" cy="13" r="3"></circle>
+              </svg>
+              Change photo
+            </button>
+          </div>
+        </div>
+        <div class="!font-sans">
+          <h3 class="text-lg !font-bold leading-6 text-gray-900 text-center !font-sans">John Doe</h3>
+          <p class="text-sm leading-5 text-gray-500 text-center">johndoe45gmail.com</p>
+          <p class="text-sm leading-5 text-gray-500 text-center">Hyderabad,India</p>
+        </div>
+        <button
+          class="flex items-center justify-center rounded-md text-sm font-medium font-sans border bg-black text-white hover:bg-slate-800 h-10 px-4"
+          (click)="onEdit()">
+          Edit profile
+        </button>
+      </div>
+    </div>
+    <div class="flex flex-row h-[100%]">
+      <div class="bg-gray-100 py-[25.5px] px-14 rounded-lg space-y-2">
+        <div class="grid grid-row-2">
+          <div class="space-y-1">
+            <label class="text-sm font-medium font-sans" for="name">
+              Name
+            </label>
+            <input class="flex h-8 w-80 rounded-md border px-3 py-2 text-sm font-sans font-medium" id="first-name"
+              [value]="name" [readOnly]="readOnly" [(ngModel)]="name" />
+          </div>
+        </div>
+        <div class="grid grid-row-2">
+          <div class="space-y-2">
+            <label class="text-sm font-medium font-sans" for="username">
+              Role
+            </label>
+            <input class="flex h-8 w-80 rounded-md border px-3 py-2 text-sm font-sans font-medium" id="first-name"
+              [value]="role" [readOnly]="readOnly" [(ngModel)]="role" />
+          </div>
+        </div>
+        <div class="grid grid-row-2">
+          <div class="space-y-2">
+            <label class="text-sm font-medium font-sans" for="username">
+              Email
+            </label>
+            <input class="flex h-8 w-80 rounded-md border px-3 py-2 text-sm font-sans font-medium" id="first-name"
+              [value]="email" [readOnly]="readOnly" [(ngModel)]="email" />
+          </div>
+        </div>
+        <div class="grid grid-row-2">
+          <div class="space-y-2">
+            <label class="text-sm font-medium font-sans" for="username">
+              Email verification
+            </label>
+            <input class="flex h-8 w-80 rounded-md border px-3 py-2 text-sm font-sans font-medium" id="first-name"
+              [value]="emailVerification" [readOnly]="readOnly" [(ngModel)]="emailVerification" />
+          </div>
+        </div>
+        <div class="grid grid-row-2">
+          <div class="space-y-2">
+            <label class="text-sm font-medium font-sans" for="username">
+              Contact
+            </label>
+            <input class="flex h-8 w-80 rounded-md border px-3 py-2 text-sm font-sans font-medium" id="first-name"
+              [value]="contact" [readOnly]="readOnly" [(ngModel)]="contact" />
+          </div>
+        </div>
+        <div class="grid grid-row-2">
+          <div class="space-y-2">
+            <label class="text-sm font-medium font-sans" for="username">
+              Mobile verification
+            </label>
+            <input class="flex h-8 w-80 rounded-md border px-3 py-2 text-sm font-sans" id="first-name"
+              [value]="mobileVerification" [readOnly]="readOnly" [(ngModel)]="mobileVerification" />
+          </div>
+        </div>
+        <div class="grid grid-row-2">
+          <div class="space-y-2">
+            <label class="text-sm font-medium font-sans" for="username">
+              Status
+            </label>
+            <input class="flex h-8 w-80 rounded-md border px-3 py-2 text-sm font-sans font-medium" id="first-name"
+              [value]="status" [readOnly]="readOnly" [(ngModel)]="status" />
+          </div>
+        </div>
+        <!-- @if (enableSaveAndCancelButton) { -->
+        <div class="flex flex-row space-x-3 py-2">
+          <button
+            class="flex flex-row w-20 items-center justify-center rounded-md text-sm font-medium font-sans border bg-black text-white hover:bg-slate-800 h-8 px-4 py-2"
+            (click)="onsave()">
+            Save
+          </button>
+          <button
+            class="flex flex-row w-20 items-center justify-center rounded-md text-sm font-medium font-sans border bg-black text-white hover:bg-slate-800 h-8 px-4 py-2"
+            (click)="onCancel()">
+            Cancel
+          </button>
+        </div>
+        <!-- } -->
+      </div>
+    </div>
+    <div class="flex flex-col h-[100%] my-auto gap-4">
+      <div class="bg-gray-100 py-9 px-10 rounded-lg space-y-2 h-[100%]">
+        <p class=" !font-sans !font-bold !text-lg">Subscription</p>
+        <p class="!font-sans !font-bold">Free Member</p>
+        <p class="!font-sans !font-bold font text-gray-500">Get 10% discount on every booking <br> with vrnda</p>
+        <div class="pt-3">
+          <button
+            class="flex items-center justify-center rounded-md text-sm font-medium font-sans border bg-black text-white hover:bg-slate-800 h-10 px-4 py-1">
+            Subscribe Premium
+          </button>
+        </div>
+      </div>
+      <div class="bg-gray-100 py-4 px-10 rounded-lg h-[100%]">
+        <p class=" !font-sans !font-bold !text-lg">Points</p>
+        <p class="!font-sans !font-bold">Total Points 50</p>
+        <p class="!font-sans !font-bold font text-gray-500">Lorem ipsum dolor sit amet consectetur.<br> with vrnda</p>
+        <div class="flex flex-col !font-sans">
+          <div class="grid grid-cols-2 items-center py-2 px-4">
+            <div class="font-bold ">Match</div>
+            <div class="font-bold ">Points</div>
+          </div>
+          <div class="grid grid-cols-2 py-2 px-4">
+            <div>Match 1</div>
+            <div>30</div>
+          </div>
+          <div class="grid grid-cols-2 py-2 px-4">
+            <div>Match 2</div>
+            <div>20</div>
+          </div>
+        </div>
+        <div class="pt-4">
+          <button
+            class="flex items-center justify-center rounded-md text-sm font-medium font-sans border bg-black text-white hover:bg-slate-800 h-10 px-4 py-2">
+            Buy more points
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-row h-[100%]">
+      <div class="flex-row">
+        <div class="bg-gray-100 py-10 px-12 rounded-lg space-y-2 h-full">
+          <p class=" !font-sans !font-bold !text-lg">Rewards</p>
+          <div class="reward-section">
+            <div class="font-sans font-semibold">
+              <h3 class="!font-sans !font-bold">First Achievement</h3>
+              <p>Received on January 1, 2024</p>
+            </div>
+            <div class="font-sans font-semibold">
+              <h3 class="!font-sans !font-bold">Second Achievement</h3>
+              <p>Received on February 15, 2024</p>
+            </div>
+            <div class="font-sans font-semibold">
+              <h3 class="!font-sans !font-bold">Third Achievement</h3>
+              <p>Received on March 30, 2024</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="flex flex-row px-10 mx-14 w-[40rem]">
+  <div class=" flex flex-col items-center">
+    <div
+      class="border border-black m-2 py-2 px-4 rounded-lg font-sans font-semibold w-48 hover:cursor-pointer text-center"
+      [class.bg-green-500]="selectedTimeSlot === '7.00 am-10.00am'" (click)="selectTimeSlot('7.00 am-10.00am')">
+      7.00 am-10.00am
+    </div>
+
+    <div
+      class="border border-black m-2 py-2 px-4 rounded-lg font-sans font-semibold w-48 hover:cursor-pointer text-center"
+      [class.bg-green-500]="selectedTimeSlot === '10.00am-.1.00pm'" (click)="selectTimeSlot('10.00am-.1.00pm')">
+      10.00am-.1.00pm
+    </div>
+
+    <div
+      class="border border-black m-2 py-2 px-4 rounded-lg font-sans font-semibold w-48 hover:cursor-pointer text-center"
+      [class.bg-green-500]="selectedTimeSlot === '1.00pm-4.00pm'" (click)="selectTimeSlot('1.00pm-4.00pm')">
+      1.00pm-4.00pm
+    </div>
+
+  </div>
+  <div class="px-40 pb-6">
+    <div class="font-sans font-bold ">
+      Booking Details
+    </div>
+    <div class="font-sans font-semibold">
+      <p>
+        Nextgen Cricket Academy
+      </p>
+      <p>
+        07-04-2024(Sun)
+      </p>
+      <p>
+        Slot: {{selectedTimeSlot}}
+      </p>
+      <p>
+        Price: Rs. 6000/-
+      </p>
+    </div>
+    <button
+      class="flex items-center justify-center rounded-md text-sm font-medium font-sans border bg-black text-white hover:bg-slate-800 h-10 w-48 px-4"
+      (click)="onBook()">
+      Book
+    </button>
+  </div>
+</div>

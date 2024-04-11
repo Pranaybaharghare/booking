@@ -1,0 +1,25 @@
+<p>
+
+<!-- <mat-slide-toggle>Toggle me!</mat-slide-toggle> -->
+<div class="w-full">
+  <mat-drawer-container class="example-container " >
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <p>Auto-resizing sidenav</p>
+      @if (showFiller) {
+        <p>Lorem, ipsum dolor sit amet consectetur.</p>
+      }
+      <button (click)="showFiller = !showFiller" mat-raised-button>
+       Home
+      </button>
+      
+    </mat-drawer>
+  
+    <div class="example-sidenav-content ">
+      <button type="button" mat-button (click)="drawer.toggle()">
+        
+      </button>
+    </div>
+  
+  </mat-drawer-container>
+</div>
+

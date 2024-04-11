@@ -1,0 +1,51 @@
+<div class="">
+  <div class="px-16 flex flex-row justify-between">
+    <div class="p-10 mx-14 !font-sans !font-semibold">
+      <h1 class="!font-sans !font-bold">Nextgen Cricket Academy</h1>
+      <div class="flex flex-row gap-1">
+        <img src="assets/location.svg" class="h-8 !py-2" alt="location">
+        <p class="!mb-0 py-2">Mandaipally Vill
+          Thumukunta - Shamirpet Mandal
+          Medchal Malkajgiri Dist</p>
+      </div>
+      <div class="flex flex-row gap-1">
+        <img src="assets/call.svg" class="h-9 !py-2" alt="call">
+        <p class="!mb-0 py-2">Anand</p>
+      </div>
+    </div>
+    <div class="p-10 mx-14">
+      <div class="border border-black p-3 rounded-lg">
+        <p class="font-semibold text-3xl font-sans flex flex-col items-center !mb-2">
+          4.5
+        </p>
+        <hr class="h-1 border-black">
+        <p class="font-sans font-semibold flex flex-col items-center text-3xl !mb-0">
+          5
+        </p>
+      </div>
+
+    </div>
+  </div>
+  <div class="flex flex-row px-16 ">
+    <div class="pb-10 pl-10 pt-4 ml-14">
+      <img src="assets/bg-image.png" class="!h-80 w-[200rem]" alt="">
+    </div>
+    <div class="flex flex-col">
+      <div class="flex flex-row px-10 pt-4 pb-8 mx-14">
+        <div class=" font-sans font-semibold"><a [routerLink]="['/details', 'overview']"
+            routerLinkActive="text-green-500">Overview</a></div>
+        <div class="ml-4 font-sans font-semibold"><a [routerLink]="['/details' ,'service']"
+            routerLinkActive="text-green-500">Services</a></div>
+        <div class="ml-4 font-sans font-semibold"><a [routerLink]="['/details' ,'slots']"
+            routerLinkActive="text-green-500">Slots</a></div>
+        <div class="ml-4 font-sans font-semibold"><a [routerLink]="['/details' ,'rules']"
+            routerLinkActive="text-green-500">Rules</a></div>
+
+      </div>
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+
+
+</div>

@@ -1,0 +1,42 @@
+<div class="flex flex-row px-4 pb-6 mx-auto">
+  <div class=" bg-slate-200 h-72 w-80 rounded-lg mx-auto font-sans px-6">
+    <img src="assets/bg-image.png" class=" rounded-2xl w-70 h-44  pt-6 pb-4" alt="ground-img">
+    <p class=" font-semibold !mb-0">Nextgen Cricket Academy</p>
+    <div class="flex flex-row gap-24">
+      <div class=" flex flex-row gap-1 mb-1">
+        <img src="assets/location.svg" class="h-7 !py-2" alt="location">
+        <p class="text-xs font-sans text-slate-500 !my-auto font-semibold hover:underline hover:cursor-pointer"
+          (click)="seeLocation()">{{location}}</p>
+      </div>
+      <div class="mx-auto my-auto flex flex-row gap-1">
+        <img src="assets/star.svg" class="w-4 h-4" alt="star">
+        <p class="!mb-0 font-sans font-semibold">4.5</p>
+      </div>
+    </div>
+    <div class="flex flex-row justify-center w-fit py-1">
+      <div class="pr-7">
+        <button
+          class="flex px-5 items-center justify-center rounded-md text-sm font-medium font-sans border bg-black text-white hover:bg-slate-800 h-10"
+          routerLink="/details">
+          View Details
+        </button>
+      </div>
+      <div class="w-fit h-9 pl-10 pt-2">
+        <button class="">
+          <img [src]="isHeartFilled?'assets/filled-heart.svg':'assets/HeartEmpty.svg'" class="w-7 h-7 px-1"
+            (click)="onHeartClick()" alt="like">
+        </button>
+        <button class="">
+          <img [src]="isSavedFilled?'assets/filled-save.svg':'assets/SaveEmpty.svg' " class="w-7 h-7 px-1" 
+            (click)="onSaveClick()" alt="save">
+        </button>
+        <button class="">
+          <img [src]="isShareFilled?'assets/filled-share.svg':'assets/empty-share.svg' " class="w-7 h-7 px-1" 
+            (click)="onShareClick()" alt="share">
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+</div>

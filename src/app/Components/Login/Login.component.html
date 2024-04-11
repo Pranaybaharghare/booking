@@ -1,0 +1,102 @@
+<div class="w-full px-4 py-6 space-y-6 ">
+  <div class="mx-auto flex flex-row justify-center">
+    <div class="order-1 flex-row pt-20 m-auto space-y-8">
+      <div class="grid gap-2 justify-center">
+        <img src="assets/logo.png" width="100px" height="100px" class="mx-auto" alt="">
+        <h1 class="!text-3xl !font-bold !font-sans"> Welcome back!</h1>
+      </div>
+      <div class="order-2 grid w-full">
+        <div class="grid grid-row-2 gap-6">
+          <div class="space-y-2">
+            <label class="text-sm font-medium font-sans" for="username">
+              Username
+            </label>
+            <input
+              class="flex h-10 w-80 rounded-md border px-3 py-2 text-sm font-sans placeholder:text-sm placeholder:font-sans placeholder:font-medium"
+              id="first-name" placeholder="Enter your username" [(ngModel)]="email" />
+          </div>
+          <div class="space-y-2 relative">
+            <label class="text-sm font-medium font-sans" for="password">
+              Password
+            </label>
+            <div class="relative">
+              <input
+                class="flex h-10 w-full rounded-md border px-3 py-2 text-sm font-sans placeholder:text-sm placeholder:font-sans placeholder:font-medium"
+                id="password" [type]="showPassword ? 'text' : 'password'" placeholder="Enter password"
+                [(ngModel)]="password" />
+              <span class="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer"
+                (click)="togglePassword()">
+                @if (showPassword) {
+                <svg class="h-6 w-6 stroke-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
+                  </path>
+                </svg>
+                }
+                @if (!showPassword) {
+                <svg class="h-6 w-6 stroke-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
+                  </path>
+                </svg>
+                }
+              </span>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <button
+              class="flex items-center justify-center rounded-md font-sans text-white text-sm font-bold h-10 px-4 py-2 w-full bg-black hover:bg-slate-800"
+              (click)="login()">Log in
+            </button>
+
+          </div>
+          <div class=" ">
+            <p class="font-sans text-center m-0">or login with</p>
+          </div>
+          <div class="space-y-4">
+            <button
+              class="flex items-center justify-center rounded-md font-sans text-white text-sm font-bold h-10 px-4 py-2 w-full bg-black hover:bg-slate-800">
+              Log in with Google
+              <svg class="w-6 h-6 mx-2" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100"
+                viewBox="0,0,256,256" style="fill:#FFFFFF;">
+                <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                  stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                  font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                  style="mix-blend-mode: normal">
+                  <g transform="scale(5.12,5.12)">
+                    <path
+                      d="M25.99609,48c-12.68359,0 -23.00391,-10.31641 -23.00391,-23c0,-12.68359 10.32031,-23 23.00391,-23c5.74609,0 11.24609,2.12891 15.49219,5.99609l0.77344,0.70703l-7.58594,7.58594l-0.70312,-0.60156c-2.22656,-1.90625 -5.05859,-2.95703 -7.97656,-2.95703c-6.76562,0 -12.27344,5.50391 -12.27344,12.26953c0,6.76563 5.50781,12.26953 12.27344,12.26953c4.87891,0 8.73438,-2.49219 10.55078,-6.73828h-11.55078v-10.35547l22.55078,0.03125l0.16797,0.79297c1.17578,5.58203 0.23438,13.79297 -4.53125,19.66797c-3.94531,4.86328 -9.72656,7.33203 -17.1875,7.33203z">
+                    </path>
+                  </g>
+                </g>
+              </svg>
+            </button>
+            <button
+              class="flex items-center justify-center rounded-md font-sans text-white text-sm font-bold h-10 px-4 py-2 w-full bg-black hover:bg-slate-800">
+              Log in with Facebook
+              <svg class="w-7 h-7 mx-2" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100"
+                viewBox="0,0,256,256" style="fill:#FFFFFF;">
+                <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                  stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                  font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                  style="mix-blend-mode: normal">
+                  <g transform="scale(8.53333,8.53333)">
+                    <path
+                      d="M15,3c-6.627,0 -12,5.373 -12,12c0,6.016 4.432,10.984 10.206,11.852v-8.672h-2.969v-3.154h2.969v-2.099c0,-3.475 1.693,-5 4.581,-5c1.383,0 2.115,0.103 2.461,0.149v2.753h-1.97c-1.226,0 -1.654,1.163 -1.654,2.473v1.724h3.593l-0.487,3.154h-3.106v8.697c5.857,-0.794 10.376,-5.802 10.376,-11.877c0,-6.627 -5.373,-12 -12,-12z">
+                    </path>
+                  </g>
+                </g>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
