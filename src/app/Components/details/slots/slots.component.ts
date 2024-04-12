@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { PaymentComponent } from '../../payment/payment.component';
 
 @Component({
   selector: 'app-slots',
@@ -9,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class SlotsComponent implements OnInit {
   selectedTimeSlot: string = '';
 
-  constructor() { }
+  constructor(private dialog:MatDialog) { }
 
   ngOnInit() {
     this.selectedTimeSlot = '7.00 am-10.00am';
@@ -20,7 +22,6 @@ export class SlotsComponent implements OnInit {
   }
 
   onBook() {
-    // console.log();
-    
+      this.dialog.open(PaymentComponent);
     }
 }
