@@ -1,3 +1,104 @@
-<p>
-  payment works!
-</p>
+<div class="bg-white px-10">
+  <h1 class="!font-sans !font-bold px-6 pt-20 pb-2">Summary</h1>
+
+  <div class="flex flex-row px-6 justify-between !font-sans font-semibold w-[22rem]">
+    <p class="">Price</p>
+    <p class="">Rs. 6000</p>
+  </div>
+  <div class="flex flex-row px-6 justify-between !font-sans font-semibold w-[22rem]">
+    <p class="">Discount</p>
+    <p class="">Rs. 600</p>
+  </div>
+  <hr class="border border-gray-500 w-80 mx-auto">
+  <div class="flex flex-row px-6 pt-2 justify-between !font-sans font-semibold w-[22rem] ">
+    <p class="">Total</p>
+    <p class="">Rs. 5400</p>
+  </div>
+  <h1 class="!font-sans !font-bold px-6 pt-6 pb-2 !mb-0">Payment Options</h1>
+  <div class=" flex flex-col justify-center w-full">
+    <div
+      class="flex flex-row border space-x-2 border-black mx-6 my-2 py-2 h-10 px-4 rounded-lg font-sans font-semibold hover:cursor-pointer text-center"
+      [class.bg-green-500]="paymentType === 'cash'" (click)="selectPaymentType('cash')">
+      <img src="assets/cash.svg" class="w-7  !mt-0" alt="">
+      <p class="my-auto !mb-0">Cash</p>
+    </div>
+    <div
+      class="relative flex flex-row border border-black space-x-2 mx-6 my-2 py-2 h-10 px-4 rounded-lg font-sans font-semibold hover:cursor-pointer text-center"
+      [class.bg-green-500]="paymentType === 'upi'" (click)="toggleUPIDropdown()">
+      <img src="assets/{{selectedUPIOption}}.svg" class="w-7 !mt-0" alt="">
+      <p class="my-auto !mb-0">{{selectedUPIOption}}</p>
+
+      @if (showUPIDropdown) {
+      <div
+        class="absolute top-full left-0 mt-2 w-full rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-10">
+        <div class="py-1" role="none">
+          <div class="flex flex-row mx-6 hover:bg-gray-400 rounded-xl w-fit px-2 py-1"
+            (click)="selectUPIOption('GPay')">
+            <img src="assets/GPay.svg" class=" w-7 !mt-0" alt="">
+            <p class="block p-2 my-auto !mb-0 text-sm text-gray-700 font-sans font-semibold " role="menuitem">GPay</p>
+          </div>
+          <div class="flex flex-row mx-6 hover:bg-gray-400 rounded-xl w-fit py-1 px-2"
+            (click)="selectUPIOption('Paytm')">
+            <img src="assets/Paytm.svg" class="w-8  !mt-0" alt="">
+            <p class="block p-2  my-auto !mb-0 text-sm text-gray-700 font-sans font-semibold " role="menuitem">Paytm</p>
+          </div>
+
+        </div>
+      </div>
+      }
+
+    </div>
+    <div
+      class="relative flex flex-row border border-black space-x-2 mx-6 my-2 py-2 h-10 px-4 rounded-lg font-sans font-semibold hover:cursor-pointer text-center"
+      [class.bg-green-500]="paymentType === 'card'" (click)="toggleCardDropdown()">
+      <img src="assets/{{selectedCardOption}}.svg" class="w-7 !mt-0" alt="">
+      <p class="my-auto !mb-0">{{selectedCardOption}}</p>
+
+      @if (showCardDropdown) {
+      <div
+        class="absolute top-full left-0 mt-2 w-full rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-10">
+        <div class="py-1" role="none">
+          <div class="flex flex-row mx-6 hover:bg-gray-400 rounded-xl w-fit px-2 py-1"
+            (click)="selectCardOption('visa')">
+            <img src="assets/visa.svg" class=" w-7 !mt-0" alt="">
+            <p class="block p-2 my-auto !mb-0 text-sm text-gray-700 font-sans font-semibold" role="menuitem">Visa</p>
+          </div>
+          <div class="flex flex-row mx-6 hover:bg-gray-400 rounded-xl w-fit px-2 py-1"
+            (click)="selectCardOption('mastercard')">
+            <img src="assets/mastercard.svg" class="w-7  !mt-0" alt="">
+            <p class="block p-2  my-auto !mb-0 text-sm text-gray-700 font-sans font-semibold " role="menuitem">
+              Mastercard</p>
+          </div>
+          <div class="flex flex-row mx-6 hover:bg-gray-400 rounded-xl w-fit px-2 py-1"
+            (click)="selectCardOption('american-express')">
+            <img src="assets/american-express.svg" class="w-7  !mt-0" alt="">
+            <p class="block p-2  my-auto !mb-0 text-sm text-gray-700 font-sans font-semibold" role="menuitem">American
+              Express</p>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+    @if (paymentButtonClick) {
+    <div
+      class="flex flex-row justify-center mb-28 bg-black space-x-2  mx-6 my-2 pt-3 pb-6 h-10 px-4 rounded-lg !font-sans font-bold hover:cursor-pointer text-white text-center">
+      <div class="!my-auto">
+        <svg class="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24">
+          <circle class="" cx="12" cy="12" r="10" stroke="green" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor"
+            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+          </path>
+        </svg>
+      </div>
+      <p class="my-auto !mb-0">{{pay}}</p>
+    </div>
+    }
+    @else {
+    <div
+      class="flex flex-row justify-center mb-28 bg-black space-x-2  mx-6 my-2 pt-3 pb-6 h-10 px-4 rounded-lg !font-sans font-bold hover:bg-gray-500 hover:cursor-pointer text-white text-center"
+      (click)="onPay()">
+      <p class="my-auto !mb-0">{{pay}}</p>
+    </div>
+    }
+  </div>
+</div>
